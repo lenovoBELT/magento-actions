@@ -46,9 +46,7 @@ then
     cp /opt/config/env/env.php app/etc/env.php
     ## end fix ##
 
-    apt-get install pv -y
-
-    pv /opt/config/env/sample_dump.sql |  mysql -u root -pmagento magento
+    mysql -h localhost -u root -pmagento magento < /opt/config/env/sample_dump.sql
 
     if [ -n "$INPUT_DISABLE_MODULES"  ]
     then
