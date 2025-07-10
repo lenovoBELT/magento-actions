@@ -21,6 +21,6 @@ jobs:
 
     - name: Building magento-actions docker image
       run: |
-        docker build .  --tag ghcr.io/lenovoBELT/magento-actions:master --tag ghcr.io/lenovoBELT/magento-actions:latest
+        docker build .  --tag ghcr.io/lenovobelt/magento-actions:master --tag ghcr.io/lenovobelt/magento-actions:latest
         docker push ghcr.io/lenovobelt/magento-actions:master
         docker push ghcr.io/lenovobelt/magento-actions:latest
