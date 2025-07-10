@@ -44,7 +44,7 @@ return [
                 'persistent' => null
             ],
             'default' => [
-                'host' => 'db',
+                'host' => 'mysql',
                 'dbname' => 'magento',
                 'username' => 'root',
                 'password' => 'magento',
