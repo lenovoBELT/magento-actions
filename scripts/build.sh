@@ -76,11 +76,8 @@ then
       if [ -n "$languages"  ]
       then
           bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
-	  done
-        done
       else
           bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
-	  done
       fi
       composer dump-autoload -o
     fi
