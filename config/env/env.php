@@ -33,7 +33,7 @@ return [
     'db' => [
         'connection' => [
             'indexer' => [
-                'host' => 'db',
+                'host' => 'mysql',
                 'dbname' => 'magento',
                 'username' => 'root',
                 'password' => 'magento',
