@@ -76,14 +76,14 @@ then
         for locale in $languages; do
           for theme in "${magento_themes_array[@]}" 
           do
-          ###  echo "bin/magento setup:static-content:deploy -t $theme $locale"
+          echo "bin/magento setup:static-content:deploy -t $theme $locale"
           ###  bin/magento setup:static-content:deploy -t $theme en_US pt_BR
 	  done
         done
       else
           for theme in "${magento_themes_array[@]}" 
           do
-           ### echo "bin/magento setup:static-content:deploy $theme"
+            echo "bin/magento setup:static-content:deploy $theme"
            ### bin/magento setup:static-content:deploy $theme
 	  done
       fi
