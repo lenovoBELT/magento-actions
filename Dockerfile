@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-LABEL org.opencontainers.image.source="https://github.com/lenovoBELT/magento-actions"
+LABEL org.opencontainers.image.source="https://github.com/lenovobelt/magento-actions"
 
 
 
