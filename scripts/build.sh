@@ -63,7 +63,7 @@ then
     if [ -z "$INPUT_LANGS"  ] && [ -z "$INPUT_THEMES"  ]
     then
       ## the switch to production will build static content for all languages declared in config.php
-      bin/magento deploy:mode:set production
+      bin/magento deploy:mode:set developer
       composer dump-autoload -o
     else
       bin/magento setup:di:compile
@@ -79,14 +79,14 @@ then
           for theme in "${magento_themes_array[@]}" 
           do
           echo "bin/magento setup:static-content:deploy -t $theme $locale"
-          bin/magento setup:static-content:deploy en_US pt_BR -j4
+          bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
 	  done
         done
       else
           for theme in "${magento_themes_array[@]}" 
           do
             echo "bin/magento setup:static-content:deploy $theme"
-          bin/magento setup:static-content:deploy en_US pt_BR -j4
+          bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
 	  done
       fi
       composer dump-autoload -o
