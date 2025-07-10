@@ -43,8 +43,12 @@ then
 
     #mysqladmin -h mysql -u root -pmagento status
     ## fix magento error: connection default is not defined
-    echo "<?php  return ['db' => [ 'table_prefix' => '', 'connection' => [ 'default' => [ 'host' => 'mysql', 'dbname' => 'magento', 'username' => 'root', 'password' => 'magento', 'model' => 'mysql4', 'engine' => 'innodb', 'initStatements' => 'SET NAMES utf8;', 'active' => '1' ] ]]];" > app/etc/env.php
+    cp /opt/config/env/env.php app/etc/env.php
     ## end fix ##
+
+    apt-get install pv -y
+
+    pv /opt/config/env/sample_dump.sql |  mysql -u root -pmagento magento
 
     if [ -n "$INPUT_DISABLE_MODULES"  ]
     then
