@@ -79,14 +79,14 @@ then
           for theme in "${magento_themes_array[@]}" 
           do
           echo "bin/magento setup:static-content:deploy -t $theme $locale"
-          ###  bin/magento setup:static-content:deploy -t $theme en_US pt_BR
+          bin/magento setup:static-content:deploy en_US pt_BR -j4
 	  done
         done
       else
           for theme in "${magento_themes_array[@]}" 
           do
             echo "bin/magento setup:static-content:deploy $theme"
-           ### bin/magento setup:static-content:deploy $theme
+          bin/magento setup:static-content:deploy en_US pt_BR -j4
 	  done
       fi
       composer dump-autoload -o
