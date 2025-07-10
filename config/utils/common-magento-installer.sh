@@ -22,7 +22,7 @@ then
 else
   if [ "$INPUT_OPENSEARCH" = "1" ]
   then
-    bin/magento deploy:mode:set production --skip-compilation
+    bin/magento deploy:mode:set developer
     bin/magento setup:upgrade
     bin/magento setup:di:compile
     bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
