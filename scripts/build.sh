@@ -67,7 +67,7 @@ then
       composer dump-autoload -o
     else
       bin/magento setup:di:compile
-      bin/magento deploy:mode:set --skip-compilation developer
+      bin/magento deploy:mode:set --skip-compilation production
       # deploy static build for different locales
       export IFS=","
       magento_themes=${INPUT_THEMES:+${INPUT_THEMES//' '/,}",Magento/backend"}
@@ -75,15 +75,10 @@ then
       languages="$INPUT_LANGS"
       if [ -n "$languages"  ]
       then
-        for locale in $languages; do
-          for theme in "${magento_themes_array[@]}" 
-          do
           bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
 	  done
         done
       else
-          for theme in "${magento_themes_array[@]}" 
-          do
           bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
 	  done
       fi
