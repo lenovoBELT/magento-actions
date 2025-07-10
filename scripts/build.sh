@@ -67,7 +67,7 @@ then
       composer dump-autoload -o
     else
       bin/magento setup:di:compile
-      bin/magento deploy:mode:set --skip-compilation production
+      bin/magento deploy:mode:set --skip-compilation developer
       # deploy static build for different locales
       export IFS=","
       magento_themes=${INPUT_THEMES:+${INPUT_THEMES//' '/,}",Magento/backend"}
