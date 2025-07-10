@@ -46,7 +46,7 @@ then
     cp /opt/config/env/env.php app/etc/env.php
     ## end fix ##
 
-    mysql -h localhost -u root -pmagento magento < /opt/config/env/sample_dump.sql
+    mysql -h mysql -u root -pmagento magento < /opt/config/env/sample_dump.sql
 
     if [ -n "$INPUT_DISABLE_MODULES"  ]
     then
