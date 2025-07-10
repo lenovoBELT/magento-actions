@@ -54,38 +54,5 @@ then
       [ -f app/etc/config.php ] && cp app/etc/config.php app/etc/config.php.orig
     fi
 
-    bash /opt/config/utils/pagebuilder-compatibility-checker.sh
     bash /opt/config/utils/common-magento-installer.sh
-
-    ## Build static contents
-    ##bash /opt/config/utils/custom-theme-builder.sh
-
-    if [ -z "$INPUT_LANGS"  ] && [ -z "$INPUT_THEMES"  ]
-    then
-      ## the switch to production will build static content for all languages declared in config.php
-      bin/magento deploy:mode:set developer
-      composer dump-autoload -o
-    else
-      bin/magento setup:di:compile
-      bin/magento deploy:mode:set --skip-compilation production
-      # deploy static build for different locales
-      export IFS=","
-      magento_themes=${INPUT_THEMES:+${INPUT_THEMES//' '/,}",Magento/backend"}
-      magento_themes_array=($magento_themes)
-      languages="$INPUT_LANGS"
-      if [ -n "$languages"  ]
-      then
-          bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
-      else
-          bin/magento setup:static-content:deploy en_US pt_BR -j4 -f
-      fi
-      composer dump-autoload -o
-    fi
-
-    if [ -n "$INPUT_DISABLE_MODULES"  ]
-    then
-      [ -f app/etc/config.php.orig ] && cat app/etc/config.php.orig > app/etc/config.php
-    fi
-
-    rm app/etc/env.php
 fi
