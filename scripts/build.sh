@@ -39,23 +39,6 @@ if [ -d "$PROJECT_PATH/magento" ]
 then
    cd "$PROJECT_PATH/magento"
 
-   /usr/local/bin/composer install --dry-run --no-dev --no-progress &> /dev/null
-
-   COMPOSER_COMPATIBILITY=$?
-
-   echo "Composer compatibility: $COMPOSER_COMPATIBILITY"
-
-   set -e
-
-   if [ $COMPOSER_COMPATIBILITY = 0 ]
-   then
-	   /usr/local/bin/composer install --no-dev --no-progress
-   else
-      echo "using composer v1"
-      php7.2 /usr/local/bin/composer self-update --1
-      /usr/local/bin/composer install --no-dev --no-progress
-   fi
-
     chmod +x bin/magento
 
     #mysqladmin -h mysql -u root -pmagento status
@@ -100,7 +83,7 @@ then
           for theme in "${magento_themes_array[@]}" 
           do
             echo "bin/magento setup:static-content:deploy -t $theme $locale"
-            bin/magento setup:static-content:deploy -t $theme $locale
+            bin/magento setup:static-content:deploy -t $theme en_US pt_BR
 	  done
         done
       else

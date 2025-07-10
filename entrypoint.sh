@@ -25,13 +25,6 @@ echo "Elasticsearch: $INPUT_ELASTICSEARCH"
 echo "Opensearch: $INPUT_OPENSEARCH"
 bash /opt/config/utils/search-engine-compatibility-checker.sh
 
-
-if [ "$INPUT_COMPOSER_VERSION" -ne 0 ]
-then
-  echo "Forcing composer to match specified input argument"
-  php7.2 /usr/local/bin/composer self-update --${INPUT_COMPOSER_VERSION}
-fi
-
 # for compatibility with older versions
 cp /opt/scripts/deploy-production.sh /opt/scripts/deploy-prod.sh
 cp /opt/scripts/cleanup-prod.sh /opt/scripts/cleanup-production.sh
