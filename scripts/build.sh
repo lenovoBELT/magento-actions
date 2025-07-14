@@ -46,13 +46,9 @@ then
     cp /opt/config/env/env.php app/etc/env.php
     ## end fix ##
 
+    echo ' ========= IMPORT DUMMY DATABASE  =========';
     mysql -h mysql -u root -pmagento magento < /opt/config/env/sample_dump.sql
-
-    if [ -n "$INPUT_DISABLE_MODULES"  ]
-    then
-      echo "These modules will be discarded during install process $INPUT_DISABLE_MODULES"
-      [ -f app/etc/config.php ] && cp app/etc/config.php app/etc/config.php.orig
-    fi
+    echo ' ========= END OF IMPORT =========';
 
     bash /opt/config/utils/common-magento-installer.sh
 fi
