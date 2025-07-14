@@ -2,8 +2,6 @@ FROM debian:bullseye
 
 LABEL org.opencontainers.image.source="https://github.com/lenovobelt/magento-actions"
 
-
-
 RUN echo 'deb  http://deb.debian.org/debian  bullseye contrib non-free' >> /etc/apt/sources.list
 RUN echo 'deb-src  http://deb.debian.org/debian  bullseye contrib non-free' >> /etc/apt/sources.list
 
