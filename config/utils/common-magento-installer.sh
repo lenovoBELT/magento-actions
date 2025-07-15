@@ -18,7 +18,7 @@ fi
   echo "Removing trash"
   composer dump-autoload -o
   echo " ========= SET ENVIRONMENT AS PRODUCTION  =========";
-  bin/magento deploy:mode:set production
+  bin/magento deploy:mode:set production --skip-compilation
   echo " ========= SETUP:UPGRADE ========="
   bin/magento setup:upgrade
   echo " ========= END OF UPGRADE ========="
