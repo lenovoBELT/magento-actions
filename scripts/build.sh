@@ -14,24 +14,24 @@ echo "currently in $PROJECT_PATH"
 echo "currently in $PROJECT_PATH"
 
 
-#launch pwa-strudio build if the directory exists
-if [ -d "$PROJECT_PATH/pwa-studio" ]
-then
-  set -e
-
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install $INPUT_NODE_VERSION
-  npm install -g yarn
-  yarn install && yarn add compression
-
-  cd pwa-studio
-  yarn install --update-checksums --frozen-lockfile
-  yarn run build
-  set +e
-  ls -talh
-fi
+##launch pwa-strudio build if the directory exists
+#if [ -d "$PROJECT_PATH/pwa-studio" ]
+#then
+#  set -e
+#
+#  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.1/install.sh | bash
+#  export NVM_DIR="$HOME/.nvm"
+#  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#  nvm install $INPUT_NODE_VERSION
+#  npm install -g yarn
+#  yarn install && yarn add compression
+#
+#  cd pwa-studio
+#  yarn install --update-checksums --frozen-lockfile
+#  yarn run build
+#  set +e
+#  ls -talh
+#fi
 cd $PROJECT_PATH
 
 
