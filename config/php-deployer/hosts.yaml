@@ -19,7 +19,7 @@ hosts:
     ssh_arguments:
       ['-o UserKnownHostsFile=/dev/null', '-o StrictHostKeyChecking=no']
     labels:
-      stage: produtcion
+      stage: production
       #remote_user: ci
     roles:
       - app
