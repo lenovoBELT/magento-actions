@@ -2,8 +2,8 @@ FROM debian:bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/lenovobelt/magento-actions"
 
-RUN echo 'deb  https://deb.debian.org/debian  bullseye contrib non-free' >> /etc/apt/sources.list
-RUN echo 'deb-src  https://deb.debian.org/debian  bullseye contrib non-free' >> /etc/apt/sources.list
+RUN echo 'deb  https://deb.debian.org/debian bookworm contrib non-free' >> /etc/apt/sources.list
+RUN echo 'deb-src  https://deb.debian.org/debian bookworm contrib non-free' >> /etc/apt/sources.list
 
 
 RUN apt-get -y update \
