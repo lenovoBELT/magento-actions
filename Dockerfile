@@ -13,16 +13,29 @@ RUN apt-get -y update \
     wget
 
 
-RUN apt-get -yq install \
-    python3-pip\
-    python3-setuptools\
-    gcc\
-    python-dev
+RUN apt-get -y update \
+    && apt-get -y install \
+        apt-transport-https \
+        ca-certificates \
+        wget \
+        gnupg \
+        dirmngr \
+        python3 \
+        python3-pip \
+        python3-setuptools \
+        python3-dev \
+        python3-venv \
+        python-is-python3 \
+        gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN wget -O "/etc/apt/trusted.gpg.d/php.gpg" "https://packages.sury.org/php/apt.gpg" \
-    && sh -c 'echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php.list'
+RUN wget -O "/etc/apt/trusted.gpg.d/php.gpg" \
+        "https://packages.sury.org/php/apt.gpg" \
+    && sh -c 'echo "deb https://packages.sury.org/php/ bookworm main" > /etc/apt/sources.list.d/php.list'
 
-RUN apt-get install -f libgd3 -y
+RUN apt-get update \
+    && apt-get install -f -y libgd3 \
+    && rm -rf /var/lib/apt/lists/* \
 
 RUN apt-get -y update \
     && apt-get -y install \
