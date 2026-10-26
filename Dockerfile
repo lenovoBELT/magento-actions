@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/lenovobelt/magento-actions"
 
@@ -6,11 +6,11 @@ RUN echo 'deb  https://deb.debian.org/debian  bullseye contrib non-free' >> /etc
 RUN echo 'deb-src  https://deb.debian.org/debian  bullseye contrib non-free' >> /etc/apt/sources.list
 
 
-#RUN apt-get -y update \
-#    && apt-get -y install \
-#    apt-transport-https \
-#    ca-certificates \
-#    wget
+RUN apt-get -y update \
+    && apt-get -y install \
+    apt-transport-https \
+    ca-certificates \
+    wget
 
 
 RUN apt-get -yq install \
