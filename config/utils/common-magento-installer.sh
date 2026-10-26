@@ -17,6 +17,7 @@ fi
 
  composer install --no-dev && ./vendor/bin/ece-patches apply
 
+
   echo "Removing trash"
   composer dump-autoload -o
   echo " ========= SET ENVIRONMENT AS PRODUCTION  =========";
