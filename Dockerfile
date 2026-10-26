@@ -35,7 +35,7 @@ RUN wget -O "/etc/apt/trusted.gpg.d/php.gpg" \
 
 RUN apt-get update \
     && apt-get install -f -y libgd3 \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -y update \
     && apt-get -y install \
